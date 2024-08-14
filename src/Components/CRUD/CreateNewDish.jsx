@@ -49,6 +49,9 @@ const CreateNewDish = () => {
       .then((res) => {
         if (res.status === 201) {
           toast.success(res.data.msg);
+          setTimeout(() => {
+            navigate("/dashboard/display_dishes");
+          }, 1500);
         }
       })
       .catch((err) => console.log(err));
