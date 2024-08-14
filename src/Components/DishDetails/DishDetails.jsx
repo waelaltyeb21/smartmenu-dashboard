@@ -21,15 +21,18 @@ const DishDetails = ({ dish, categories, setOpen }) => {
     const data = {
       id: dish._id,
       name,
-      category,
+      category: category.name_en,
       price,
+      active
     };
     await axios
       .post(`${SERVER_URL}dishes/update_dish`, data)
       .then((res) => {
         if (res.status === 200) {
-          console.log(res);
           toast.success(res.data.msg);
+          setTimeout(() => {
+            toast.success("اعد تحميل الصفحة لعرض التغيرات");
+          }, 1000)
           setOpen((prv) => !prv);
         }
       })
