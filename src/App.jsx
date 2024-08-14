@@ -19,7 +19,7 @@ function App() {
           {/* Dashboard */}
           <Route element={<ProtectedRoute />}>
             <Route path="/dashboard/" element={<Dashboard />}>
-              <Route path="" element={<Home />} />
+              <Route path="/homepage" element={<Home />} />
               <Route path="profile" element={<Profile />} />
               <Route path="create_dish" element={<Create />} />
               <Route path="display_dishes" element={<Display />} />
