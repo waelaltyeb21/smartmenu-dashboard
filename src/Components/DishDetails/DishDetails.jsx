@@ -13,6 +13,7 @@ const DishDetails = ({ dish, categories, setOpen }) => {
     (category) => category.name_en == dish.category
   );
   const [price, setPrice] = useState(dish.price);
+  const [active, setActive] = useState(dish.active);
   const [category, setCategory] = useState({
     name_ar: dishCategory.name_ar,
     name_en: dishCategory.name_en,
