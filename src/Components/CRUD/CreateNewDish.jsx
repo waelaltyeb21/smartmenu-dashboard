@@ -40,8 +40,6 @@ const CreateNewDish = () => {
       image: image.name,
       active: active,
     };
-    console.log(dish);
-    console.log(`${SERVER_URL}dishes/create_new_dish`)
     axios
       .post(`${SERVER_URL}dishes/create_new_dish`, dish, {
         headers: {
@@ -50,7 +48,6 @@ const CreateNewDish = () => {
       })
       .then((res) => {
         if (res.status === 201) {
-          console.log(res);
           toast.success(res.data.msg);
         }
       })
