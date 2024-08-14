@@ -1,11 +1,13 @@
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 import { useRef } from "react";
+import { useNavigate } from "react-router";
 import { useState } from "react";
 import useFetch from "../../Hooks/useFetch";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 const CreateNewDish = () => {
   const dishImage = useRef();
+  const navigate = useNavigate();
   const selectedImage = useRef();
   const [name, setName] = useState({
     ar: "",
