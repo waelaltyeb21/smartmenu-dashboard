@@ -13,6 +13,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const DisplayDishes = () => {
+  const target = useRef();
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
   const [dish, setDish] = useState({});
@@ -38,6 +39,7 @@ const DisplayDishes = () => {
       .then((res) => {
         if (res.status === 200) {
           setOpen((prv) => !prv);
+          target.current.style.display = "none";
           toast.success(res.data.msg);
         }
       })
@@ -56,6 +58,7 @@ const DisplayDishes = () => {
         {data.dishes.map((dish) => (
           <div
             key={dish._id}
+            ref={target}
             className="dish flex flex-col justify-center items-center text-center"
           >
             <div className="heading w-full flex lg:md:flex-row justify-between items-center flex-col-reverse">
