@@ -22,13 +22,12 @@ const CreateNewDish = () => {
   if (error) return <h3>Error</h3>;
   const createNew = (event) => {
     event.preventDefault();
-    if (name.ar == "" && name.en == "" && price == 0 && category == "") {
-      console.log("Data Needed");
+    if (name.ar == "" && name.en == "" && price == 0 && category == "" && image == "") {
+      toast.error("قم بملئ الحقول الفارفة");
       return;
     }
     const dishImage = new FormData();
     dishImage.append("image", image);
-    console.log(dishImage);
     const dish = {
       name: {
         ar: name.ar,
