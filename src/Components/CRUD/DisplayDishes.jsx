@@ -30,17 +30,14 @@ const DisplayDishes = () => {
     // Get Dish Details
     const dish = data.dishes.find((dish) => dish._id == id);
     setDish(dish);
-    console.log(dish);
   };
   // Delete Target Dish
   const deleteDish = (id) => {
-    console.log(id);
     axios
-      .delete(`http://localhost:8080/dishes/delete_dish/${id}`)
+      .delete(`${SERVER_URL}dishes/delete_dish/${id}`)
       .then((res) => {
         if (res.status === 200) {
           setOpen((prv) => !prv);
-          console.log(res.data);
           toast.success(res.data.msg);
         }
       })
